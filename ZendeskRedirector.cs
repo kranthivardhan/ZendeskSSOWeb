@@ -18,13 +18,17 @@ namespace ZendeskSSOWeb
             //string redirectUrl = $"https://{subdomain}.zendesk.com/access/jwt?jwt={token}&return_to=https://{subdomain}.zendesk.com/hc/en-us/articles/{articleId}";
             string redirectUrl = $"https://{subdomain}.zendesk.com/access/jwt?jwt={HttpUtility.UrlEncode(token)}&return_to={HttpUtility.UrlEncode($"https://{subdomain}.zendesk.com/hc/en-us/articles/{articleId}")},_blank";
 
+            //kranthi edits
             // Log the generated token and redirection URL for debugging
             //Console.WriteLine("Generated JWT Token: " + token);
             //Console.WriteLine("Redirection URL: " + redirectUrl);
 
             //HttpContext.Current.Response.Redirect(redirectUrl);
             //Application.Navigate(redirectUrl, target: "_blank");
-            
+
+            //kranthi vardhan kolluru--- Rewrite the code to remove the trailing comma and space
+            char[] charsToTrim = { ' ', ',' };
+            redirectUrl = redirectUrl.TrimEnd(charsToTrim);
             return redirectUrl;
         }
 
