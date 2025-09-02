@@ -19,11 +19,11 @@ namespace ZendeskSSOWeb
             string redirectUrl = $"https://{subdomain}.zendesk.com/access/jwt?jwt={HttpUtility.UrlEncode(token)}&return_to={HttpUtility.UrlEncode($"https://{subdomain}.zendesk.com/hc/en-us/articles/{articleId}")},_blank";
 
             // Log the generated token and redirection URL for debugging
-            //Console.WriteLine("Generated JWT Token: " + token);
-            //Console.WriteLine("Redirection URL: " + redirectUrl);
+            Console.WriteLine("Generated JWT Token: " + token);
+            Console.WriteLine("Redirection URL: " + redirectUrl);
 
-            //HttpContext.Current.Response.Redirect(redirectUrl);
-            //Application.Navigate(redirectUrl, target: "_blank");
+            HttpContext.Current.Response.Redirect(redirectUrl);
+            Application.Navigate(redirectUrl, target: "_blank");
             
             return redirectUrl;
         }
